@@ -36,6 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'user_info.apps.UserInfoConfig',
+    'journey.apps.JourneyConfig',
+    'activity.apps.ActivityConfig',
+    'main_site.apps.MainSiteConfig'
 ]
 
 MIDDLEWARE = [
@@ -113,6 +117,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'user_info.User'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
