@@ -18,5 +18,9 @@ from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
-    url(r'', views.index),
+    url(r'manage/course', views.course_manage, name="course_manage"),
+    url(r'manage/document', views.document_manage, name="document_manage"),
+    url(r'course/', views.course, name="journey_course"),
+    url(r'document/', views.document, name="journey_document"),
+    url(r'^$', views.index, name="journey"),
 ]

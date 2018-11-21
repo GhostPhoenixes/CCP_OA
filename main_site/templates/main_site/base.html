@@ -39,18 +39,23 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/" style="color: #8a1010;font-weight:bold;">首页</a>
+                    <a class="nav-link" href="{% url 'index' %}" style="color: #8a1010;">首页</a>
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'info' %}" style="color: #8a1010;font-weight:bold;">我的信息</a>
+                        <a class="nav-link" href="{% url 'info' %}" style="color: #8a1010;">我的信息</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: #8a1010">入党流程</a>
+                        <a class="nav-link" href="{% url 'journey_course' %}" style="color: #8a1010">我的党课</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: #8a1010">志愿时长</a>
+                        <a class="nav-link" href="{% url 'activity' %}" style="color: #8a1010">志愿时长</a>
                     </li>
+                    {% if user.is_admin %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'manage' %}" style="color: #8a1010">系统管理</a>
+                        </li>
+                    {% endif %}
                 {% endif %}
             </ul>
             <div class="navbar-right">

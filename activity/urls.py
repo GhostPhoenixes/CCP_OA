@@ -20,5 +20,6 @@ from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
-    url(r'', views.index),
+    url(r'manage/', views.manage,name="activity_manage"),
+    url(r'^$', views.index,name="activity"),
 ]
