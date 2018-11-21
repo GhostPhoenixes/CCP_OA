@@ -21,9 +21,8 @@ from main_site import views
 
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
-    url(r'', views.login, name="login"),
-    url(r'register', views.register, name="register"),
     url(r'activity/', include('activity.urls')),
     url(r'joueney/', include('journey.urls')),
     url(r'user_info/', include('user_info.urls')),
+    url(r'^$', views.index, name="index"),
 ]

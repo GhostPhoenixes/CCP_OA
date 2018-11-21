@@ -10,17 +10,26 @@
 <body>
 <style>
     @media (min-width: 1300px) {
-        .container {
-            max-width: 1300px;
+        .container.header {
+            min-width: 1300px;
         }
+    }
+
+    li a {
+        color: #333;
+    !important;
+    }
+
+    ::-webkit-scrollbar {
+        display: none
     }
 </style>
 
-<div class="container mt-3">
+<div class="container header mt-3">
     {% load static %}
     <img src="{% static "logo.png" %}"/>
 </div>
-<div class="container mt-3">
+<div class="container header mt-3">
     <hr style="margin:0 !important; border:none;border-top:1px solid #cc1c25;"/>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -30,31 +39,36 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: #8a1010;font-weight:bold;">首页</a>
+                    <a class="nav-link" href="/" style="color: #8a1010;font-weight:bold;">首页</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: #8a1010;font-weight:bold;">我的信息</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: #8a1010">入党流程</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: #8a1010">志愿时长</a>
-                </li>
-            </ul>
-            <div class="form-inline my-2 my-lg-0">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="settings/{{ user.username }}">Welcome {{ user.username }} !</a>
+                        <a class="nav-link" href="{% url 'info' %}" style="color: #8a1010;font-weight:bold;">我的信息</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">注销</a>
+                        <a class="nav-link" href="#" style="color: #8a1010">入党流程</a>
                     </li>
-                {% else %}
-                    <a class="nav-link" href="{% url 'login' %}" style="color:#333;">登录</a>
-                    <a class="nav-link" href="{% url 'register' %}" style="color:#333;">注册</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: #8a1010">志愿时长</a>
+                    </li>
                 {% endif %}
+            </ul>
+            <div class="navbar-right">
+                <ul class="navbar-nav mr-auto">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="settings/{{ user.username }}" style="color:#333;">Welcome {{ user.username }} !</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout" style="color:#333;">注销</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-link" href="{% url 'login' %}" style="color:#333;">登录</li>
+                        <li class="nav-link" href="{% url 'register' %}" style="color:#333;">注册</li>
+                    {% endif %}
+                </ul>
             </div>
+
         </div>
     </nav>
     <hr style="margin:0 !important; border:none;border-top:4px solid #cc1c25;"/>
