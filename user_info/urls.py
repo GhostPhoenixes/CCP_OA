@@ -18,5 +18,8 @@ from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
-    url(r'', views.index),
+    url(r'register', views.register, name="register"),
+    url(r'login/', views.auth, name="login"),
+    url(r'manage/', views.manage, name="user_info_manage"),
+    url(r'^$', views.index, name="info"),
 ]
