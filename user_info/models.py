@@ -1,3 +1,11 @@
+"""
+包括User和CcpMember两个表
+User表用来存储用户的登录信息
+CcpMember存储的是实际的入党信息
+其他APP中的表把CcpMember作为外键
+
+"""
+
 from django.db import models
 from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.utils.translation import gettext_lazy as _
@@ -98,3 +106,9 @@ class User(AbstractBaseUser):
     def clean(self):
         super().clean()
         self.email = self.__class__.objects.normalize_email(self.email)
+
+
+class CcpMember(models.Model):
+    student_id = models.TextField()
+    real_name = models.TextField()
+    current_state = models.TextField()
