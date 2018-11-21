@@ -2,7 +2,9 @@ from django.shortcuts import render
 
 
 def index(request):
-    context = {}
+    context = {
+        'select':"activity"
+    }
     return render(request, "activity/index.html", context=context)
 
 

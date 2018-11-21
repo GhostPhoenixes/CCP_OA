@@ -8,13 +8,17 @@ def index(request):
 
 
 def course(request):
-    context = {}
-    return render(request, "journey/index.html", context=context)
+    context = {
+        'select':"journey_course"
+    }
+    return render(request, "journey/course.html", context=context)
 
 
 def document(request):
-    context = {}
-    return render(request, "journey/index.html", context=context)
+    context = {
+        'select':"journey_document"
+    }
+    return render(request, "journey/document.html", context=context)
 
 
 def course_manage(request):
